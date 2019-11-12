@@ -21,24 +21,76 @@ class _HomeState extends State<Home> {
     var a = fetchPost();
     a.then((val) {
       setState(() {
-      c = val ;
+        c = val;
       });
     });
   }
 
   Future<Model> fetchPost() async {
-    Map<String, String> requestHeaders = {
-      'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
-      "x-rapidapi-key": "0e10b7bc7emsh062c71fd26b34a3p17f603jsn6f0a528d3904"
-    };
-
-    var a = await http.get(
-        'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%3Anew7-!2015%2C2019-!0%2C5-!0%2C10-!0-!Movie-!Any-!English-!gt100-!%7Bdownloadable%7D&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and',
-        headers: requestHeaders);
-    if (a.statusCode == 200) {
-      return Model.fromJson(json.decode(a.body));
-    }
-    
+    return Model.fromJson(json.decode("""{
+	"COUNT": "65",
+	"ITEMS": [
+		{
+			"netflixid": "70307407",
+			"title": "The Jungle",
+			"image": "https://cdn.virily.com/wp-content/uploads/2017/11/jungle.jpg",
+			"synopsis": "While a documentary team searches remote parts of the Indonesian jungle looking for an endangered leopard, they soon realize they&#39;re being stalked.",
+			"rating": "9",
+			"type": "movie",
+			"released": "2014",
+			"runtime": "1h24m",
+			"largeimage": "",
+			"unogsdate": "2017-08-11",
+			"imdbid": "tt3502172",
+			"download": "5"
+		},
+		{
+			"netflixid": "423744",
+			"title": "Dawn of the Dead",
+			"image": "https://images-na.ssl-images-amazon.com/images/I/91J9bJj-pAL._RI_.jpg",
+			"synopsis": "Picking up where &#39;Night of the Living Dead&#39; left off, this horror classic begins with a flesh-eating zombie army invading every major American city.",
+			"rating": "7.8",
+			"type": "movie",
+			"released": "1978",
+			"runtime": "2h6m",
+			"largeimage": "",
+			"unogsdate": "2017-08-11",
+			"imdbid": "tt0077402",
+			"download": "0"
+		},
+		{
+			"netflixid": "70307747",
+			"title": "Once Upon a Time in Vietnam",
+			"image": "https://i.pinimg.com/originals/0c/fb/2a/0cfb2a063995136fb52a0d1914f21a20.jpg",
+			"synopsis": "Wandering the countryside, brooding warrior-monk Dao takes up arms to protect a village beleaguered by a crime boss. But Dao has his own past to face.",
+			"rating": "2.5",
+			"type": "movie",
+			"released": "2013",
+			"runtime": "1h46m",
+			"largeimage": "",
+			"unogsdate": "2017-08-11",
+			"imdbid": "tt2531258",
+			"download": "0"
+		},
+		{
+			"netflixid": "80112565",
+			"title": "Allied",
+			"image": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85",
+			"synopsis": "Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
+			"rating": "9.5",
+			"type": "movie",
+			"released": "2016",
+			"runtime": "2h4m",
+			"largeimage": "",
+			"unogsdate": "2017-08-11",
+			"imdbid": "tt3640424",
+			"download": "0"
+		}
+		
+		
+	]
+}
+"""));
   }
 
   Active(i) {
@@ -67,7 +119,7 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 buildContainer(),
-                c.cOUNT == "none" ? Text('Hey') :  buildCarouselSlider(),
+                c.cOUNT == "none" ? Text('Hey') : buildCarouselSlider(),
                 new Info(c.iTEMS[j]),
                 Container(
                   margin: EdgeInsets.only(
@@ -106,7 +158,6 @@ class _HomeState extends State<Home> {
   }
 
   CarouselSlider buildCarouselSlider() {
-   
     return CarouselSlider(
       onPageChanged: (e) => SecondPage(e),
       height: 450.0,
@@ -145,15 +196,12 @@ class _HomeState extends State<Home> {
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(100),
                             topRight: Radius.circular(100)),
-                        child: Image.network(
-                            i.image,
-                            fit: BoxFit.cover),
+                        child: Image.network(i.image, fit: BoxFit.cover),
                       ),
                     ),
                     Positioned(
-                      child: No(c.iTEMS.indexOf(i)+1),
+                      child: No(c.iTEMS.indexOf(i) + 1),
                     ),
-                    
                     Positioned(
                       bottom: 1,
                       right: 1,
@@ -170,8 +218,6 @@ class _HomeState extends State<Home> {
   }
 
   Container buildRating(i) {
-
-    
     return Container(
       width: 100,
       margin: EdgeInsets.only(top: 10, bottom: 10),
@@ -279,7 +325,7 @@ class _HomeState extends State<Home> {
 class Info extends StatelessWidget {
   var i;
   Info(this.i);
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
