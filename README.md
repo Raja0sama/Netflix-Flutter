@@ -6,7 +6,7 @@ A Flutter Simple UI !
 
 <img src = "https://i.imgur.com/S79nsH1.jpg" width="300" />
 
-<img src = "https://i.imgur.com/tkNSBOW.jpg" width="300" />
+<img src = "https://i.imgur.com/va9yQI6.jpg" width="300" />
 
 
 Tried to recreate this dribble shot.
