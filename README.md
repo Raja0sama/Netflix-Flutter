@@ -7,7 +7,7 @@
 <td> <img src = "https://i.imgur.com/S79nsH1.jpg" width="300" /></td> 
 <td> <img src = "https://i.imgur.com/va9yQI6.jpg" width="300" /><td> 
   </tr>
-
+</table>
 
 ### `Tried to recreate this dribble shot.`
 
